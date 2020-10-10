@@ -23,11 +23,15 @@ public class Xadrez {
                 System.out.println();
                 System.out.print("Origem: ");
                 ChessPosition source = UI.readChessPosition(le);
-
+                
+                boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+                UI.clearScreen();
+                UI.printBoard(chessMatch.getPieces(), possibleMoves);
+               
                 System.out.println();
                 System.out.print("Destino: ");
                 ChessPosition target = UI.readChessPosition(le);
-
+                
                 ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
             }
             catch (ChessException e){
